@@ -2,7 +2,6 @@
 <!-- Use DrawerLayout as root container for activity -->
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                         xmlns:app="http://schemas.android.com/apk/res-auto"
-                                        xmlns:tools="http://schemas.android.com/tools"
                                         android:id="@+id/drawer_layout"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
@@ -19,17 +18,23 @@
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
 
-
-    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
-        <ListView
-            android:id="@+id/list_view"
+        <GridView
+            android:id="@+id/gridViewGoods"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="com.example.distribution.p007.MainActivity">
+            android:horizontalSpacing="@dimen/image_grid_spacing"
+            android:numColumns="4"
+            android:padding="8dp"
+            android:verticalSpacing="@dimen/image_grid_spacing"
+            />
+        <!--<android.support.constraint.ConstraintLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
+    <!---->
 
-        </ListView>
+<!--</android.support.constraint.ConstraintLayout>-->
     </LinearLayout>
 
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
@@ -43,4 +48,3 @@
         app:menu="@menu/drawer_view"/>
 
 </android.support.v4.widget.DrawerLayout>
-
