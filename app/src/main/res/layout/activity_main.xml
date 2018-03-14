@@ -7,30 +7,25 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:fitsSystemWindows="true">
-    <LinearLayout
+
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        tools:context="com.example.distribution.test_main.MainActivity"
+        >
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
-
-
-    <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
-        <ListView
-            android:id="@+id/list_view"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="com.example.distribution.p007.MainActivity">
+            android:layout_height="match_parent">
 
-
-        </ListView>
-    </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <android.support.design.widget.NavigationView

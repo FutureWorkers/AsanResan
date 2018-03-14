@@ -42,7 +42,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:paddingRight="16dp"
-                android:text="پیگیری خرید" />
+                android:text="پیشینه خرید" />
         </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"

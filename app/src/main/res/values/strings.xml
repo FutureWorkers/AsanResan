@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Asan Resan</string>
+    <string name="title_activity_shopping_history">ShoppingHistoryActivity</string>
 </resources>
