@@ -1,16 +1,20 @@
 package com.example.distribution.p007
 
+import android.app.Fragment
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    val TAG = "MainFragment"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var fragmentStack = Stack<Fragment>()
 
         //--------------------toolbar as action bar for navDrawer----------------
         setSupportActionBar(toolbar)
@@ -28,7 +32,10 @@ class MainActivity : AppCompatActivity() {
 
         //---------------------main fragment----------------------------
         val companyListMain = CompanyListMain_Fr()
-        fragmentManager.beginTransaction().add(R.id.fragment_container,companyListMain).commit()
+        fragmentManager.beginTransaction().add(R.id.fragment_container,companyListMain,TAG).commit()
+
+        //------------------------- fragment stack setup------------------------
+       // fragmentStack.push(companyListMain)
     }
     //--------------------------on ic_menu click listener  for navDrawer----------------------
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -39,5 +46,32 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+
+
+//        var count: String = " "+ fragmentManager.backStackEntryCount
+//        Toast.makeText(this,count,Toast.LENGTH_SHORT).show()
+
+        var myFragment = fragmentManager.findFragmentById(R.id.fragment_container)
+        if (myFragment != null && myFragment is CompanyListMain_Fr && myFragment!!.isVisible()) {
+            super.onBackPressed()
+        }else{
+            val companyListMain = CompanyListMain_Fr()
+            fragmentManager.beginTransaction().add(R.id.fragment_container,companyListMain).commit()
+        }
+
+        //if (fragmentStack.size() = 2) {
+//            FragmentTransaction ft = fragmentManager.beginTransaction();
+//            fragmentStack.lastElement().onPause();
+//            ft.remove(fragmentStack.pop());
+//            fragmentStack.lastElement().onResume();
+//            ft.show(fragmentStack.lastElement());
+//            ft.commit();
+//        } else {
+//            super.onBackPressed();
+//        }
+   // }
     }
 }

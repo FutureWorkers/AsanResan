@@ -20,7 +20,7 @@ class CompanyProfile_Fr : Fragment() {
         companyName.text = currentCompany.companyName
         basketButton.setOnClickListener {
             val goodsList = GoodsList_Fr()
-            fragmentManager.beginTransaction().replace(R.id.fragment_container,goodsList).addToBackStack("").commit()
+            fragmentManager.beginTransaction().replace(R.id.fragment_container,goodsList).commit()
         }
     }
 }

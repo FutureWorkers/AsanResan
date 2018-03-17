@@ -1,9 +1,7 @@
 package com.example.distribution.p007
 
 import android.app.Fragment
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,7 +20,6 @@ class CompanyListMain_Fr : Fragment() {
         return inflater!!.inflate(R.layout.company_list_main, container, false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         val companies = ArrayList<CompanyDetail>()
 
@@ -44,7 +41,7 @@ class CompanyListMain_Fr : Fragment() {
             Log.v("companies", companies[i].companyName)
         }
 
-        val adapter = MainAdapter(context, 0, companies)
+        val adapter = MainAdapter(activity, 0, companies)
         list_view.adapter = adapter
         //----------------------- company item selection --------------
         list_view.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
@@ -53,8 +50,7 @@ class CompanyListMain_Fr : Fragment() {
             bundle.putSerializable("company", companies[position])
             companyFragment.arguments = bundle
             fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, companyFragment)
-                    .addToBackStack("CompanyListMain").commit()
+                    .replace(R.id.fragment_container, companyFragment).commit()
         }
 
 

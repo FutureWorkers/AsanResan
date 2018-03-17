@@ -1,9 +1,7 @@
 package com.example.distribution.p007
 
 import android.app.Fragment
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,22 +12,20 @@ import kotlinx.android.synthetic.main.goods_list.*
  */
 class GoodsList_Fr : Fragment() {
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
 //        Toast.makeText(this.context,"onCreateView",Toast.LENGTH_SHORT).show()
 //        Log.v("lifeCycle","onCreateView")
+
         return inflater!!.inflate(R.layout.goods_list,container,false)
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         //--------------------add image resource goods for test---------------------
 
         val list = ArrayList<String>()
         for(i in 0..40)
             list.add("")
-        gridViewGoods.adapter = GoodsAdapter(context,0, list)
-        fragmentManager.popBackStack()
+        gridViewGoods.adapter = GoodsAdapter(activity,0, list)
     }
 
 //        @RequiresApi(Build.VERSION_CODES.M)
