@@ -10,6 +10,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="mainHeading">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Large</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="heading1">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
@@ -29,6 +35,12 @@
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:gravity">right</item>
+    </style>
+    <style name="textSmallBeyondImage">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Small</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>

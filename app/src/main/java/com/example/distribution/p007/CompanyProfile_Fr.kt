@@ -16,7 +16,7 @@ class CompanyProfile_Fr : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         //--------------------------------views---------------------------------
-        val currentCompany =  arguments.getSerializable("company") as CompanyDetail
+        val currentCompany =  arguments.getSerializable("company") as CompanyDetail_Obj
         companyName.text = currentCompany.companyName
         basketButton.setOnClickListener {
             val goodsList = GoodsList_Fr()

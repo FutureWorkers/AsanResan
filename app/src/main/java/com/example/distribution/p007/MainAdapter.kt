@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.company_list_item.view.*
  * Created by Z50 on 2018-02-18.
  */
 
-class MainAdapter(context: Context, resource: Int, objects: List<CompanyDetail>) : ArrayAdapter<CompanyDetail>(context, 0, objects) {
+class MainAdapter(context: Context, resource: Int, objects: List<CompanyDetail_Obj>) : ArrayAdapter<CompanyDetail_Obj>(context, 0, objects) {
 
     //------------------------make list view------------------------
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

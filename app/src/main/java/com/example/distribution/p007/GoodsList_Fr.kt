@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.goods_list.*
 
 /**
- * Created by Z50 on 2018-03-10.
- */
+* Created by T2Aq on 2018-03-10.
+*/
 class GoodsList_Fr : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -22,37 +22,24 @@ class GoodsList_Fr : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         //--------------------add image resource goods for test---------------------
 
-        val list = ArrayList<String>()
-        for(i in 0..40)
-            list.add("")
+        var good:Goods_obj
+        val list = ArrayList<Goods_obj>()
+        for(i in 0..40){
+            good = Goods_obj()
+            good.name = "کالا "+i.toString()
+            good.price = i+1000
+            good.description = "توضیح کالا "+i.toString()
+            list.add(good)
+        }
         gridViewGoods.adapter = GoodsAdapter(activity,0, list)
+        //-----------------------on itemClick listener------------------------------
+        gridViewGoods.setOnItemClickListener { parent, view, position, id ->
+        val goodsProfile = GoodsProfile_Fr()
+            fragmentManager.beginTransaction().replace(R.id.fragment_container,goodsProfile).addToBackStack("GoodsList").commit()
+        }
     }
 
-//        @RequiresApi(Build.VERSION_CODES.M)
-//    override fun onStop() {
-//        super.onStop()
-//        Toast.makeText(context,"stop",Toast.LENGTH_SHORT).show()
-//        Log.v("lifeCycle","stop")
-//    }
 
-//    @RequiresApi(Build.VERSION_CODES.M)
-//    override fun onPause() {
-//        super.onPause()
-//        Toast.makeText(context,"onPause",Toast.LENGTH_SHORT).show()
-//        Log.v("lifeCycle","onPause")
-//    }
-//
-//    @RequiresApi(Build.VERSION_CODES.M)
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//
-//        Toast.makeText(this.context,"onDestroyView",Toast.LENGTH_SHORT).show()
-//        Log.v("lifeCycle","onDestroyView")
-//    }
-//    @RequiresApi(Build.VERSION_CODES.M)
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        Toast.makeText(this.context,"onDestroy",Toast.LENGTH_SHORT).show()
-//        Log.v("lifeCycle","onDestroy")
-//    }
+
+
 }

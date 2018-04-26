@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Asan Resan</string>
+    <string name="app_name">آسان رسان</string>
     <string name="title_activity_shopping_history">ShoppingHistoryActivity</string>
+    <string name="image_goods_profile">image_goods_profile</string>
 </resources>

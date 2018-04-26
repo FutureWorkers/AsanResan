@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.company_list_main.*
 import java.util.*
 
 /**
- * Created by Z50 on 2018-03-13.
- */
+* Created by T2Aq on 2018-03-13.
+*/
 class CompanyListMain_Fr : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -21,7 +21,7 @@ class CompanyListMain_Fr : Fragment() {
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        val companies = ArrayList<CompanyDetail>()
+        val companies = ArrayList<CompanyDetail_Obj>()
 
 
         //--------------------fab button--------------------------------
@@ -32,7 +32,7 @@ class CompanyListMain_Fr : Fragment() {
         //--------------------add companies for test---------------------
 
         for (i in 0..15) {
-            var company = CompanyDetail()
+            var company = CompanyDetail_Obj()
             company.companyName = "شرکت" + i
             company.companyAddress = "آدرس شرکت" + i
             company.companyId = i

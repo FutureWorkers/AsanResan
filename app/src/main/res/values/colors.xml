@@ -5,4 +5,6 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="background">#a4a4a4</color>
     <color name="lightText">#FFFFFF</color>
+    <color name="transparentBackground">#80FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

@@ -17,15 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CompanyProfile_Fr">
-        </activity>
-        <activity android:name=".GoodsList_Fr">
-        </activity>
-        <activity
-            android:name=".ShoppingHistoryActivity"
-            android:label="@string/title_activity_shopping_history"
-            android:theme="@style/AppTheme">
-        </activity>
+        <!--<activity-->
+            <!--android:name=".ShoppingHistoryActivity"-->
+            <!--android:label="@string/title_activity_shopping_history"-->
+            <!--android:theme="@style/AppTheme">-->
+        <!--</activity>-->
     </application>
 
 </manifest>

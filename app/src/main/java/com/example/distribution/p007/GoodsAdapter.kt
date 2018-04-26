@@ -11,18 +11,20 @@ import java.io.File
 
 
 /**
- * Created by Z50 on 2018-03-10.
- */
-class GoodsAdapter(context: Context?, resource: Int, objects: List<String>?) : ArrayAdapter<String>(context, resource, objects) {
+* Created by T2Aq on 2018-03-10.
+*/
+class GoodsAdapter(context: Context?, resource: Int, objects: List<Goods_obj>?) : ArrayAdapter<Goods_obj>(context, resource, objects) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var gridListView = convertView
         if(gridListView == null){
             gridListView = LayoutInflater.from(context).inflate(R.layout.goods_list_item,parent,false)
         }
-        var currentImageAddress = getItem(position)
+        var currentGoods = getItem(position)
 
-        //-----------------------set item views------------------------
-        //gridListView!!.goodsImage.setImageDrawable(currentImage)
+        //-----------------------init views------------------------
+
+        gridListView!!.goodsName.text = currentGoods.name
+        gridListView.goods_price.text = currentGoods.price.toString()
         var imageAddress = ""
         if (imageAddress != null) {
             val file = File(imageAddress)
@@ -34,6 +36,7 @@ class GoodsAdapter(context: Context?, resource: Int, objects: List<String>?) : A
         } else {
             gridListView!!.goodsImage.setImageResource(R.mipmap.ic_launcher)
         }
+        //ToDo gridListView!!.goodsImage.setOnClickListener {  }
         return gridListView!!
     }
 

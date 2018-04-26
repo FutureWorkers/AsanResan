@@ -6,7 +6,7 @@ import java.io.Serializable
  * Created by Z50 on 2018-02-18.
  */
 
-class CompanyDetail : Serializable {
+class CompanyDetail_Obj : Serializable {
 
     var companyName: String? = null
     var companyAddress: String? = null

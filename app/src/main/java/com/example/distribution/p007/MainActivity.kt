@@ -1,26 +1,32 @@
 package com.example.distribution.p007
 
-import android.app.Fragment
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
-import android.view.MenuItem
+import android.view.View
+import kotlinx.android.synthetic.main.action_bar.*
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+
     val TAG = "MainFragment"
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var fragmentStack = Stack<Fragment>()
+        window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL
 
-        //--------------------toolbar as action bar for navDrawer----------------
+        //--------------------init action bar----------------
         setSupportActionBar(toolbar)
         val actionbar = supportActionBar
-        actionbar!!.setDisplayHomeAsUpEnabled(true)
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu)
+        actionbar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        actionbar.setCustomView(R.layout.action_bar)
+        //--------------------On item click for actionBar-----------------------
+        icMenuButton.setOnClickListener {  drawer_layout!!.openDrawer(GravityCompat.START) }
         //-------------------Add click event for navDrawer-----------------------
         nav_view.setNavigationItemSelectedListener { menuItem ->
             // set item as selected to persist highlight
@@ -29,49 +35,35 @@ class MainActivity : AppCompatActivity() {
             drawer_layout.closeDrawers()
             true
         }
-
         //---------------------main fragment----------------------------
         val companyListMain = CompanyListMain_Fr()
         fragmentManager.beginTransaction().add(R.id.fragment_container,companyListMain,TAG).commit()
+        //----------------------------------------------------------------
+          fun setCountall(text:String){
 
-        //------------------------- fragment stack setup------------------------
-       // fragmentStack.push(companyListMain)
+        }
+
     }
     //--------------------------on ic_menu click listener  for navDrawer----------------------
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                drawer_layout!!.openDrawer(GravityCompat.START)
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//           R.id.icMenuButton -> {
+//                drawer_layout!!.openDrawer(GravityCompat.START)
+//                return true
+//            }
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
     override fun onBackPressed() {
-
-
-//        var count: String = " "+ fragmentManager.backStackEntryCount
-//        Toast.makeText(this,count,Toast.LENGTH_SHORT).show()
-
         var myFragment = fragmentManager.findFragmentById(R.id.fragment_container)
-        if (myFragment != null && myFragment is CompanyListMain_Fr && myFragment!!.isVisible()) {
+        if (myFragment != null && (myFragment is CompanyListMain_Fr || myFragment is GoodsProfile_Fr) && myFragment.isVisible) {
             super.onBackPressed()
         }else{
             val companyListMain = CompanyListMain_Fr()
             fragmentManager.beginTransaction().add(R.id.fragment_container,companyListMain).commit()
         }
 
-        //if (fragmentStack.size() = 2) {
-//            FragmentTransaction ft = fragmentManager.beginTransaction();
-//            fragmentStack.lastElement().onPause();
-//            ft.remove(fragmentStack.pop());
-//            fragmentStack.lastElement().onResume();
-//            ft.show(fragmentStack.lastElement());
-//            ft.commit();
-//        } else {
-//            super.onBackPressed();
-//        }
-   // }
     }
+
 }
