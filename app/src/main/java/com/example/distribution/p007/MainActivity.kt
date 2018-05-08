@@ -61,9 +61,10 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }else{
             val companyListMain = CompanyListMain_Fr()
-            fragmentManager.beginTransaction().add(R.id.fragment_container,companyListMain).commit()
+            fragmentManager.beginTransaction().add(R.id.fragment_toolbar_container,companyListMain).commit()
         }
 
     }
+
 
 }
