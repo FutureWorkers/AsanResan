@@ -6,4 +6,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="image_list_height">130dp</dimen>
     <dimen name="padding">8dp</dimen>
+    <dimen name="slider">300dp</dimen>
 </resources>

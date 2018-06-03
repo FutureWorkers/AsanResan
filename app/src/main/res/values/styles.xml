@@ -9,7 +9,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+<style name="ToolbarThem" parent="ThemeOverlay.AppCompat.ActionBar">
 
+</style>
     <style name="mainHeading">
         <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Large</item>
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>

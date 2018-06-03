@@ -24,8 +24,8 @@ class MainAdapter(context: Context, resource: Int, objects: List<CompanyDetail_O
         val currentCompany = getItem(position)
         //-----------------------set item views------------------------
 
-        listItemView!!.company_item.text = currentCompany.companyName
+        listItemView!!.companyName.text = currentCompany.companyName
 
-        return listItemView!!
+        return listItemView
     }
 }
